@@ -1,0 +1,9 @@
+public class CalculatorEntry {
+
+    //程序运行入口
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator(10, 10);
+        calculator.setFormula("3*3+3");
+        System.out.println(calculator.calculate(calculator.getFormula()));
+    }
+}
