@@ -29,31 +29,31 @@ public class CalculatorGUI extends JFrame {
 
         //设置各项组件
         //显示算式的标签
-        JLabel formulaText = new JLabel(new ImageIcon(setImage("src/assets/background.png", 390, 90)), SwingConstants.LEFT);
+        JLabel formulaText = new JLabel("1+1+1");
         formulaText.setBounds(0, 0, 400, 100);
         formulaText.setFont(new Font("myFont", Font.BOLD, 20));
 
         //各项按钮
-        JButton button_delete = createJButton("src/assets/delete.png", 0, 100);
-        JButton button_squire = createJButton("src/assets/squire.png", 100, 100);
-        JButton button_root = createJButton("src/assets/root.png", 200, 100);
-        JButton button_division = createJButton("src/assets/division.png", 300, 100);
-        JButton button_seven = createJButton("src/assets/seven.png", 0, 200);
-        JButton button_eight = createJButton("src/assets/eight.png", 100, 200);
-        JButton button_nine = createJButton("src/assets/nine.png", 200, 200);
-        JButton button_multiplication = createJButton("src/assets/multiplication.png", 300, 200);
-        JButton button_four = createJButton("src/assets/four.png", 0, 300);
-        JButton button_five = createJButton("src/assets/five.png", 100, 300);
-        JButton button_six = createJButton("src/assets/six.png", 200, 300);
-        JButton button_subtraction = createJButton("src/assets/subtraction.png", 300, 300);
-        JButton button_one = createJButton("src/assets/one.png", 0, 400);
-        JButton button_two = createJButton("src/assets/two.png", 100, 400);
-        JButton button_three = createJButton("src/assets/three.png", 200, 400);
-        JButton button_add = createJButton("src/assets/add.png", 300, 400);
-        JButton button_returnZero = createJButton("src/assets/return_zero.png", 0, 500);
-        JButton button_zero = createJButton("src/assets/zero.png", 100, 500);
-        JButton button_point = createJButton("src/assets/point.png", 200, 500);
-        JButton button_equal = createJButton("src/assets/equal.png", 300, 500);
+        JButton button_delete = createJButton(0, 100, "delete");
+        JButton button_squire = createJButton(100, 100, "x²");
+        JButton button_root = createJButton(200, 100, "√￣x");
+        JButton button_division = createJButton(300, 100, "÷");
+        JButton button_seven = createJButton(0, 200, "7");
+        JButton button_eight = createJButton(100, 200, "8");
+        JButton button_nine = createJButton(200, 200, "9");
+        JButton button_multiplication = createJButton(300, 200, "x");
+        JButton button_four = createJButton(0, 300, "4");
+        JButton button_five = createJButton(100, 300, "5");
+        JButton button_six = createJButton(200, 300, "6");
+        JButton button_subtraction = createJButton(300, 300, "-");
+        JButton button_one = createJButton( 0, 400, "1");
+        JButton button_two = createJButton(100, 400, "2");
+        JButton button_three = createJButton(200, 400, "3");
+        JButton button_add = createJButton(300, 400, "+");
+        JButton button_returnZero = createJButton(0, 500, "C");
+        JButton button_zero = createJButton( 100, 500, "0");
+        JButton button_point = createJButton(200, 500, ".");
+        JButton button_equal = createJButton(300, 500, "=");
 
 
 
@@ -92,19 +92,12 @@ public class CalculatorGUI extends JFrame {
         }
     }
 
-    private JButton createJButton(String iconFile, int x, int y){
-        JButton button = new JButton(new ImageIcon(setImage(iconFile, 90, 90)));
+    private JButton createJButton(int x, int y, String text){
+        JButton button = new JButton(text);
         button.setBounds(x, y, 95, 95);
+        button.setFocusable(false);
+        button.setFont(new Font("buttonFont", Font.BOLD, 20));
         return button;
     }
 
-    private Image setImage(String file, int width, int height){
-        try {
-            File inputFile = new File(file);
-            BufferedImage bufferedImage = ImageIO.read(inputFile);
-            return bufferedImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
