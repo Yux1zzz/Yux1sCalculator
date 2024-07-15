@@ -14,6 +14,8 @@ public class Calculator {
         //初始化数字栈与运算符栈
         this.numberStack = new NumberStack(numberStackMaxSize);
         this.operatorStack = new OperatorStack(operatorStackMaxSize);
+        //初始化字符串
+        formula = "";
     }
 
 
@@ -72,6 +74,12 @@ public class Calculator {
         }
     }
 
+    public void formulaDelete(){
+        if (!formula.isEmpty()) {
+            formula = formula.substring(0, formula.length() - 1);
+        }
+    }
+
     //简单的计算函数
     private float simpleCalculate(float int01, float int02, char operator){
         if (operator == '+'){
@@ -114,6 +122,10 @@ public class Calculator {
 
     public void setFormula(String formula) {
         this.formula = formula;
+    }
+
+    public boolean isEmpty(){
+        return formula.isEmpty();
     }
 }
 
